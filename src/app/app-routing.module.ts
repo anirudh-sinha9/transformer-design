@@ -7,6 +7,10 @@ const routes: Routes = [
     loadChildren: './modules/landing/landing.module#LandingModule'
   },
   {
+    path: 'user',
+    loadChildren: './modules/user/user.module#UserModule'
+  },
+  {
     path: '',
     redirectTo: 'landing',
     pathMatch: 'full'
