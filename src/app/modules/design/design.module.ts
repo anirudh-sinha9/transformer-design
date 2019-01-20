@@ -7,12 +7,15 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { InputSpecificationComponent } from './components/input-specification/input-specification.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [DesignContainerComponent, DashboardComponent, HeaderComponent, FooterComponent, InputSpecificationComponent],
   imports: [
     CommonModule,
-    DesignRoutingModule
+    DesignRoutingModule,
+    NgbModule
   ]
 })
 export class DesignModule { }
