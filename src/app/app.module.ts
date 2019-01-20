@@ -4,6 +4,9 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import {ROUTING} from "../constants/routing";
+
+
 @NgModule({
   declarations: [
     AppComponent
@@ -12,7 +15,9 @@ import { AppComponent } from './app.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    {provide: 'ROUTING_CONSTANTS', useValue: ROUTING}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

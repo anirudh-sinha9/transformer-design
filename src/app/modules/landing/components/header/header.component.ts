@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import {ROUTING} from "../../../../../constants/routing";
 
 @Component({
   selector: 'app-header',
@@ -14,6 +15,11 @@ export class HeaderComponent implements OnInit {
   }
 
   register(){
-    this.router.navigate(['user/register']);
+    this.router.navigate([ROUTING.USER.REGISTER_PATH]);
+  }
+
+  login() {
+    this.router.navigate([ROUTING.USER.LOGIN_PATH]);
+
   }
 }

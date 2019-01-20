@@ -1,15 +1,25 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {ROUTING} from "../constants/routing";
 
 const routes: Routes = [
   {
-    path: 'landing',
+    path: ROUTING.LANDING.DEFAULT,
     loadChildren: './modules/landing/landing.module#LandingModule'
   },
   {
-    path: 'user',
+    path: ROUTING.USER.DEFAULT,
     loadChildren: './modules/user/user.module#UserModule'
   },
+  {
+    path: ROUTING.DESIGN.DEFAULT,
+    loadChildren: './modules/design/design.module#DesignModule'
+  },
+  {
+    path: ROUTING.DISTRIBUTION.DEFAULT,
+    loadChildren: './modules/distribution/distribution.module#DistributionModule'
+  },
+
   {
     path: '',
     redirectTo: 'landing',
