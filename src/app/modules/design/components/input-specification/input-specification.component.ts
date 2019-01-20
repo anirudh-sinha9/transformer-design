@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import {BUTTONS} from "../../../../../constants/Buttons";
+import {LABELS} from "../../../../../constants/Labels";
 
 @Component({
   selector: 'app-input-specification',
@@ -10,6 +11,7 @@ import {BUTTONS} from "../../../../../constants/Buttons";
 export class InputSpecificationComponent implements OnInit {
   closeResult: string;
   buttons = BUTTONS;
+  labels = LABELS;
 
   constructor(private modalService: NgbModal) {}
 

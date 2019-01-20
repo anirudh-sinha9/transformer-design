@@ -6,14 +6,13 @@ import { AppComponent } from './app.component';
 
 import {ROUTING} from "../constants/routing";
 
-
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [
     {provide: 'ROUTING_CONSTANTS', useValue: ROUTING}

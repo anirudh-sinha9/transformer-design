@@ -8,6 +8,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { InputSpecificationComponent } from './components/input-specification/input-specification.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
   imports: [
     CommonModule,
     DesignRoutingModule,
-    NgbModule
+    NgbModule,
+    AngularFontAwesomeModule,
   ]
 })
 export class DesignModule { }

@@ -1,32 +1,36 @@
 <ng-template #content let-modal>
+
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
-    <button type="button" class="close" aria-label="Close"
-            (click)="modal.dismiss('Cross click')"
-    >
-      <span aria-hidden="true">&times;</span>
-    </button>
+    <h6 class="modal-title" id="modal-basic-title">{{labels.SELECT_TRANSFORMER_TYPE}}</h6>
+    <div  class="close-button" (click)="modal.dismiss('Cross click')">
+      <i class="fa fa-times" aria-hidden="true"></i>
+    </div>
   </div>
+
   <div class="modal-body">
     <form>
-      <div class="form-group">
-        <label for="dateOfBirth">Date of birth</label>
-        <div class="input-group">
-          <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
-          <div class="input-group-append">
-            <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
-          </div>
-        </div>
+      <!--<input type="radio" name="{{}}">-->
+      <div>
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
       </div>
+      <div class="custom-control custom-radio">
+        <input type="radio" class="custom-control-input" id="defaultUnchecked" name="defaultExampleRadios">
+        <label class="custom-control-label" for="defaultUnchecked">Default unchecked</label>
+      </div>
+
     </form>
   </div>
+
   <div class="modal-footer">
     <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
   </div>
+
 </ng-template>
 
-<button class="btn btn-lg btn-outline-primary" (click)="open(content)">{{buttons.ADD_NEW_DESIGN}}</button>
-
-<hr>
+<button class="btn btn-outline-primary" (click)="open(content)">
+  <fa name="plus"></fa>
+  {{buttons.ADD_NEW_DESIGN}}
+</button>
 
 <pre>{{closeResult}}</pre>

@@ -1,0 +1,15 @@
+.close-button{
+  width: 30px;
+  height: 30px;
+  border: 0;
+  background-color: transparent;
+  border-radius: 50%;
+  i{
+    padding: 6px 0px 0px 9px;
+  }
+}
+
+.close-button:hover{
+  background-color: azure;
+}
+
