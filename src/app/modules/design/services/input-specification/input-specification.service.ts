@@ -14,11 +14,11 @@ export class InputSpecificationService {
 
   $tranformerTypeForm: Observable<FormGroup> = this.tranformerTypeForm.asObservable();
 
-  tranformerTypeForm: BehaviorSubject<FormGroup> = new BehaviorSubject(
-    this.formBuilder.group(new TypeFormModel())
-  );
+  // tranformerTypeForm: BehaviorSubject<FormGroup> = new BehaviorSubject(
+  //   this.formBuilder.group(new TypeFormModel())
+  // );
 
-  $tranformerTypeForm: Observable<FormGroup> = this.tranformerTypeForm.asObservable();
+  // $tranformerTypeForm: Observable<FormGroup> = this.tranformerTypeForm.asObservable();
 
 
   constructor(private formBuilder:FormBuilder) { }
