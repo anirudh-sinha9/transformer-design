@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import {ROUTING} from "../constants/routing";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -13,6 +14,8 @@ import {ROUTING} from "../constants/routing";
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [
     {provide: 'ROUTING_CONSTANTS', useValue: ROUTING}

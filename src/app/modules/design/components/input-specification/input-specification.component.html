@@ -8,22 +8,56 @@
   </div>
 
   <div class="modal-body">
-    <form>
-      <!--<input type="radio" name="{{}}">-->
-      <div>
-        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-      </div>
+
+
+    <form [formGroup] = "tranformerTypeForm">
       <div class="custom-control custom-radio">
-        <input type="radio" class="custom-control-input" id="defaultUnchecked" name="defaultExampleRadios">
-        <label class="custom-control-label" for="defaultUnchecked">Default unchecked</label>
+        <input
+          type="radio"
+          formControlName="type"
+          name="type"
+          value="{{transformerType.DISTRIBUTION}}"
+          class="custom-control-input"
+          id="{{transformerType.DISTRIBUTION}}"
+        >
+        <label
+          class="custom-control-label"
+          for="{{transformerType.DISTRIBUTION}}">
+          {{transformerType.DISTRIBUTION}}
+        </label>
       </div>
 
+      <div class="custom-control custom-radio">
+        <input
+          type="radio"
+          formControlName="type"
+          name="type"
+          value="{{transformerType.ISOLATION}}"
+          class="custom-control-input"
+          id="{{transformerType.ISOLATION}}"
+        >
+        <label
+          class="custom-control-label"
+          for="{{transformerType.ISOLATION}}">
+          {{transformerType.ISOLATION}}
+        </label>
+      </div>
+      <button class="btn btn-outline-primary" [disabled]="tranformerTypeForm.controls.type.invalid"  (click)="onNext()">{{buttons.NEXT}}</button>
     </form>
+
+    <p>Form value: {{ formValue}}</p>
+
+
+
+
+
+
+
   </div>
 
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    <!--<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>-->
   </div>
 
 </ng-template>

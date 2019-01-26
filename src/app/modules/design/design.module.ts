@@ -9,6 +9,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { InputSpecificationComponent } from './components/input-specification/input-specification.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -18,6 +19,9 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     DesignRoutingModule,
     NgbModule,
     AngularFontAwesomeModule,
+    ReactiveFormsModule,
+    FormsModule,
   ]
 })
+
 export class DesignModule { }
