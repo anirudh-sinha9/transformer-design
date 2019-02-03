@@ -1,70 +1,215 @@
-<ng-template #content let-modal>
-
-  <div class="modal-header">
-    <h6 class="modal-title" id="modal-basic-title">{{labels.SELECT_TRANSFORMER_TYPE}}</h6>
-    <div  class="close-button" (click)="modal.dismiss('Cross click')">
-      <i class="fa fa-times" aria-hidden="true"></i>
-    </div>
-  </div>
-
-  <div class="modal-body">
-
-
-
-    <form [formGroup] = "tranformerTypeForm">
-      <div class="custom-control custom-radio">
-        <input
-          type="radio"
-          formControlName="type"
-          name="type"
-          value="{{transformerType.DISTRIBUTION}}"
-          class="custom-control-input"
-          id="{{transformerType.DISTRIBUTION}}"
-        >
-        <label
-          class="custom-control-label"
-          for="{{transformerType.DISTRIBUTION}}">
-          {{transformerType.DISTRIBUTION}}
-        </label>
-      </div>
-
-      <div class="custom-control custom-radio">
-        <input
-          type="radio"
-          formControlName="type"
-          name="type"
-          value="{{transformerType.ISOLATION}}"
-          class="custom-control-input"
-          id="{{transformerType.ISOLATION}}"
-        >
-        <label
-          class="custom-control-label"
-          for="{{transformerType.ISOLATION}}">
-          {{transformerType.ISOLATION}}
-        </label>
-      </div>
-      <button class="btn btn-outline-primary" [disabled]="tranformerTypeForm.controls.type.invalid"  (click)="onNext()">{{buttons.NEXT}}</button>
-    </form>
-
-    <p>Form value: {{ formValue}}</p>
-
-
-
-
-
-
-
-  </div>
-
-  <div class="modal-footer">
-    <!--<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>-->
-  </div>
-
-</ng-template>
-
-<button class="btn btn-outline-primary" (click)="open(content)">
+<button class="btn btn-outline-primary"
+        data-toggle="modal"
+        data-target="#inputSpecification"
+        (click)="onAddNewDesign()"
+>
   <fa name="plus"></fa>
   {{buttons.ADD_NEW_DESIGN}}
 </button>
 
-<pre>{{closeResult}}</pre>
+<div class="modal fade" tabindex="-1" id="inputSpecification" role="dialog" aria-hidden="true" data-backdrop="static">
+  <div class="modal-dialog  modal-lg" role="dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" >{{modalHeader}}</h5>
+        <div  class="close-button" data-dismiss="modal">
+          <i class="fa fa-times" aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <div class="modal-body">
+
+        <div ngSwitch="{{tabIndex}}">
+
+          <div *ngSwitchCase="1">
+            <form [formGroup] = "typeForm">
+              <div class="custom-control custom-radio">
+                <input
+                  type="radio"
+                  formControlName="type"
+                  name="type"
+                  value="{{transformerType.DISTRIBUTION}}"
+                  class="custom-control-input"
+                  id="{{transformerType.DISTRIBUTION}}"
+                >
+                <label
+                  class="custom-control-label"
+                  for="{{transformerType.DISTRIBUTION}}">
+                  {{transformerType.DISTRIBUTION}}
+                </label>
+              </div>
+
+              <div class="custom-control custom-radio">
+                <input
+                  type="radio"
+                  formControlName="type"
+                  name="type"
+                  value="{{transformerType.ISOLATION}}"
+                  class="custom-control-input"
+                  id="{{transformerType.ISOLATION}}"
+                >
+                <label
+                  class="custom-control-label"
+                  for="{{transformerType.ISOLATION}}">
+                  {{transformerType.ISOLATION}}
+                </label>
+              </div>
+              <button class="btn btn-outline-primary pull-right" [disabled]="typeForm.controls.type.invalid" (click)="onNext()">{{buttons.NEXT}}</button>
+            </form>
+          </div>
+
+          <div *ngSwitchCase="2">
+            <form  [formGroup] = "ratingsForm" (change)="ratingsFormChange()">
+              <div class="form-row">
+                <div class="col-5">
+                  <label class="form-control border-0" for="kvaRating">KVA Rating </label>
+                </div>
+                <div class="col-5">
+                  <input
+                    formControlName="KVARating"
+                    id="kvaRating"
+                    type="text"
+                    class="form-control" >
+                </div>
+                <div class="col-2">
+                  <label class="form-control border-0">KVA </label>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="col-5">
+                  <label class="form-control border-0" for="vectorGroup">Vector Group </label>
+                </div>
+                <div class="col-5">
+                  <input
+                    formControlName="vectorGroup"
+                    id="vectorGroup"
+                    type="text"
+                    class="form-control" >
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="col-5">
+                  <label class="form-control border-0" for="insulaionClass">Insulaion Class</label>
+                </div>
+                <div class="col-5">
+                  <input
+                    formControlName="insulaionClass"
+                    id="insulaionClass"
+                    type="text"
+                    class="form-control" >
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="col-5">
+                  <label class="form-control border-0" for="conductorMaterial">Conductor Material</label>
+                </div>
+                <div class="col-5">
+                  <input
+                    formControlName="conductor"
+                    id="conductorMaterial"
+                    type="text"
+                    class="form-control" >
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="col-5">
+                  <label class="form-control border-0" for="LVNominalLineVoltage">LV Nominal  Line  Voltage</label>
+                </div>
+                <div class="col-5">
+                  <input
+                    formControlName="LVNominalLineVoltage"
+                    id="LVNominalLineVoltage"
+                    type="text"
+                    class="form-control" >
+                </div>
+                <div class="col-2">
+                  <label class="form-control border-0">V</label>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="col-5">
+                  <label class="form-control border-0" for="HVNominalLineVoltage">HV Nominal Line  Voltage</label>
+                </div>
+                <div class="col-5">
+                  <input
+                    formControlName="HVNominalLineVoltage"
+                    id="HVNominalLineVoltage"
+                    type="text"
+                    class="form-control" >
+                </div>
+                <div class="col-2">
+                  <label class="form-control border-0">V</label>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="col-5">
+                  <label class="form-control border-0" for="Frequency">Frequency</label>
+                </div>
+                <div class="col-5">
+                  <input
+                    formControlName="frequency"
+                    id="Frequency"
+                    type="text"
+                    class="form-control" >
+                </div>
+                <div class="col-2">
+                  <label class="form-control border-0">Hz</label>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="col-5">
+                  <label class="form-control border-0" for="InputVoltageVariation">Input Voltage Variation +/-</label>
+                </div>
+                <div class="col-5">
+                  <input
+                    formControlName="inputVoltageVariation"
+                    id="InputVoltageVariation"
+                    type="text"
+                    class="form-control" >
+                </div>
+                <div class="col-2">
+                  <label class="form-control border-0">%</label>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="col-5">
+                  <label class="form-control border-0" for="InputFrequencyVariation">Input  Frequency Variation +/-</label>
+                </div>
+                <div class="col-5">
+                  <input
+                    formControlName="inputFrequencyVariation"
+                    id="InputFrequencyVariation"
+                    type="text"
+                    class="form-control" >
+                </div>
+                <div class="col-2">
+                  <label class="form-control border-0">%</label>
+                </div>
+              </div>
+              <button  (click)="onBack()"
+                       class="btn btn-outline-primary pull-left"
+              >{{buttons.BACK}}</button>
+              <button (click)="onNext()"
+                      class="btn btn-outline-primary pull-right"
+              >{{buttons.NEXT}}</button>
+
+            </form>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+

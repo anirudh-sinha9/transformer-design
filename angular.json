@@ -27,9 +27,16 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+//              F:/Aniruddha/IMPORTANT/TRX DESIGN WEB APP REPOS/transformer-design/node_modules/bootstrap/dist/css/bootstrap.css
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+//              "node_modules/chart.js/dist/Chart.js",
+//              "node_modules/hammerjs/hammer.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {

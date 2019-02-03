@@ -13,5 +13,5 @@ export class RatingsFormModel{
   frequency = new FormControl('',Validators.required);
   inputVoltageVariation = new FormControl('',Validators.required);
   inputFrequencyVariation = new FormControl('',Validators.required);
-  Conductor= new FormControl('',Validators.required);
+  conductor= new FormControl('',Validators.required);
 }

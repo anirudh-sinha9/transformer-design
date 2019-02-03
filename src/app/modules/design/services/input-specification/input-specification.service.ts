@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject, Observable} from "rxjs/index";
-import {TypeFormModel} from "../../models/input-specification/transformer.type.form.model";
+import {RatingsFormModel, TypeFormModel} from "../../models/input-specification/transformer.type.form.model";
 import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Injectable({
@@ -8,23 +8,30 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 })
 export class InputSpecificationService {
 
-  tranformerTypeForm: BehaviorSubject<FormGroup> = new BehaviorSubject(
+  typeForm: BehaviorSubject<FormGroup> = new BehaviorSubject(
     this.formBuilder.group(new TypeFormModel())
   );
+  $typeForm: Observable<FormGroup> = this.typeForm.asObservable();
 
-  $tranformerTypeForm: Observable<FormGroup> = this.tranformerTypeForm.asObservable();
+  ratingsForm: BehaviorSubject<FormGroup> = new BehaviorSubject(
+    this.formBuilder.group(new RatingsFormModel())
+  );
+  $ratingsForm: Observable<FormGroup> = this.ratingsForm.asObservable();
 
-  // tranformerTypeForm: BehaviorSubject<FormGroup> = new BehaviorSubject(
-  //   this.formBuilder.group(new TypeFormModel())
-  // );
-
-  // $tranformerTypeForm: Observable<FormGroup> = this.tranformerTypeForm.asObservable();
 
 
   constructor(private formBuilder:FormBuilder) { }
+  resetAllForms(){
+    this.resetTypeForm();
+    this.resetRatingsForm();
+  }
 
-   resetTranformerTypeForm(){
-    this.tranformerTypeForm.next(this.formBuilder.group(new TypeFormModel()));
+   resetTypeForm(){
+    this.typeForm.next(this.formBuilder.group(new TypeFormModel()));
+   }
+
+   resetRatingsForm(){
+    this.ratingsForm.next(this.formBuilder.group(new RatingsFormModel()));
    }
 
 }
